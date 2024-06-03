@@ -1,13 +1,13 @@
-import os
 import subprocess
-import glob
 from pathlib import Path
-from os import walk, listdir
+import ffmpeg
+from os import listdir
 from os.path import isfile, join
 
 # Конфигурация сетевой папки
 # network_folder = Path(r'"\\NAME-SERVER\D$\Folder 1\Folder 2\Folder 3\file.exe"')
 video_extensions = ['.mp4', '.avi', '.MOV']
+EXCEPTIONS = ["", ".DS_STORE", "Инструкция.txt"]
 network_folder = r'\\10.2.0.4\nas\Магия\Покрутить видосики на экране'
 
 
@@ -17,10 +17,11 @@ def get_video_files():
     return sorted(files)
 
 
-def create_file_list(file_list, output_file):
+def create_file_list(file_list, output_file): #todo ignore .DS_STORE
     with open(output_file, 'w') as f:
         for file in file_list:
-            f.write(f"file '{file}'\n")
+            if file not in EXCEPTIONS:
+                f.write(join(file))
 
 
 def merge_videos(file_list):
@@ -32,7 +33,7 @@ def merge_videos(file_list):
 
 
 def play_video(video_file):
-    subprocess.run(['vlc', video_file])
+    subprocess.run(['vlc.exe', video_file])
 
 
 if __name__ == '__main__':
