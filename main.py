@@ -56,9 +56,10 @@ def play_video(video_file):
 
 if __name__ == '__main__':
     video_files = get_video_files()
-    if video_files:
-        merged_video = concatenate(video_files, final)
-        # merged_video = merge_videos(video_files)
-        play_video(merged_video)
-    else:
-        print("No video files found.")
+    create_file_list()
+    # if video_files:
+    #     merged_video = concatenate(video_files, final)
+    #     # merged_video = merge_videos(video_files)
+    #     play_video(merged_video)
+    # else:
+    #     print("No video files found.")
