@@ -1,6 +1,5 @@
-from pathlib import Path
+import os.path
 import subprocess
-
 # todo config
 FFMPEG = Path('/usr/bin/ffmpeg')
 # NET_FOLDER = Path('/mnt/winshare/nas/Магия/Покрутить видосики на экране')
@@ -51,7 +50,8 @@ def concat_movs(videos_file, output_file: Path):
     command = [FFMPEG, '-y', '-f', 'concat', '-safe', '0', '-i', videos_file, '-c', 'copy', output_file]
     print(f"Concatenating {output_file}")
     subprocess.run(command)
-
+   
+ 
 
 if __name__ == '__main__':
     '''

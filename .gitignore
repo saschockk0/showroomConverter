@@ -1,7 +1,7 @@
 .env
 .venv
 merged_video.mp4
-
 .idea
-*.mov
 *.MOV
+*.mp4
+*.mov
