@@ -2,6 +2,6 @@
 .venv
 merged_video.mp4
 .idea
-.MOV
-.mp4
-.mov
+*.MOV
+*.mp4
+*.mov
