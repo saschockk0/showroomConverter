@@ -1,7 +1,5 @@
 from pathlib import Path
 import subprocess
-import os
-import glob
 
 # todo config
 FFMPEG = Path('/usr/bin/ffmpeg')
@@ -28,11 +26,10 @@ class VideoList:
         with open(self.file_name, 'a') as f:
             f.write(f"file '{self.file_name}'\n")
 
-    def add_video_paths(self, paths: list[Path]): # todo rework function to add paths
+    def add_video_paths(self, paths: list[Path]):  # todo rework function to add paths
         with open(self.file_name, 'a') as f:
             for path in paths:
                 f.write(f"file '{path}'\n")
-
 
     def delete_video_path(self, path: Path):
         match_files = self.get_video_paths()
@@ -87,7 +84,4 @@ if __name__ == '__main__':
     """
     Если changed то пересборка перезапуск видоса
     Проверка процесса vlc, если не работает, запускаем
-    
-    ffplay vs vlc check
     """
-
